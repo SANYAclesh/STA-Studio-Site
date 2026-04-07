@@ -10,11 +10,28 @@
     href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="img/logo2.png" type="any" sizes="32x32">
+  <link rel="icon" href="img/logo1.png" type="image/png" sizes="32x32">
 </head>
 
 <body>
 
+  <!-- ===== LOADER ===== -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <span class="ll-s">S</span><span class="ll-t">T</span><span class="ll-a">A</span>
+      </div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar"></div>
+      </div>
+      <div class="loader-sub">STUDIO</div>
+    </div>
+  </div>
+
   <div class="page-transition" id="pageTransition"></div>
+
+  <!-- Custom cursor — hidden on touch -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
@@ -29,6 +46,7 @@
       <li><a href="#tsr-card" class="nav-link" data-key="nav_tsr">TSR</a></li>
       <li><a href="#store" class="nav-link" data-key="nav_store">Store</a></li>
       <li><a href="#faq" class="nav-link" data-key="nav_faq">FAQ</a></li>
+      <li><a href="#contacts" class="nav-link" data-key="nav_contacts">Contacts</a></li>
     </ul>
     <div class="lang-switcher">
       <button class="lang-btn active" id="lang-uk" onclick="setLang('uk')">
@@ -39,7 +57,26 @@
         <span class="lang-label">EN</span>
       </button>
     </div>
+    <!-- Burger for mobile -->
+    <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- Mobile menu overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#tlol-card" onclick="closeMenu()" data-key="nav_tlol">TLOL</a></li>
+      <li><a href="#tsr-card" onclick="closeMenu()" data-key="nav_tsr">TSR</a></li>
+      <li><a href="#store" onclick="closeMenu()" data-key="nav_store">Store</a></li>
+      <li><a href="#faq" onclick="closeMenu()" data-key="nav_faq">FAQ</a></li>
+      <li><a href="#contacts" onclick="closeMenu()" data-key="nav_contacts">Contacts</a></li>
+    </ul>
+    <div class="mobile-lang">
+      <button onclick="setLang('uk'); closeMenu()"><span class="flag">🇺🇦</span> UA</button>
+      <button onclick="setLang('en'); closeMenu()"><span class="flag">🇬🇧</span> EN</button>
+    </div>
+  </div>
 
   <!-- HERO -->
   <section id="hero">
@@ -47,16 +84,16 @@
     <div class="hero-grid"></div>
     <div class="hero-star"></div>
     <div class="hero-content">
-      <p class="hero-eyebrow" data-key="hero_eyebrow">// SCHOOL TEAM ART STUDIO</p>
+      <p class="hero-eyebrow" data-key="hero_eyebrow">// School Team Art</p>
       <h1 class="hero-title">STA<br><span class="accent">STUDIO</span></h1>
-      <p class="hero-sub" data-key="hero_sub">GAMES · ART · PRODUCTS</p>
+      <p class="hero-sub" data-key="hero_sub">ІГРИ · МИСТЕЦТВО · ПРОДУКТИ</p>
       <div class="hero-cta">
-        <a href="#games" class="btn btn-primary" data-key="hero_btn1">EXPLORE GAMES</a>
-        <a href="#store" class="btn btn-outline" data-key="hero_btn2">VISIT STORE</a>
+        <a href="#games" class="btn btn-primary" data-key="hero_btn1">ДИВИТИСЬ ІГРИ</a>
+        <a href="#store" class="btn btn-outline" data-key="hero_btn2">МАГАЗИН</a>
       </div>
     </div>
     <div class="scroll-hint">
-      <span data-key="scroll">SCROLL</span>
+      <span data-key="scroll">ГОРТАЙ</span>
       <div class="scroll-line"></div>
     </div>
   </section>
@@ -64,7 +101,7 @@
   <!-- GAMES -->
   <section id="games">
     <div class="games-header reveal">
-      <div class="section-label" data-key="games_label">// OUR PROJECTS</div>
+      <div class="section-label" data-key="games_label">// НАШІ ПРОЄКТИ</div>
       <h2 data-key="games_title">FEATURED <span class="accent">GAMES</span></h2>
     </div>
 
@@ -74,15 +111,15 @@
       <div class="game-card-overlay tlol-overlay"></div>
       <img class="char-img" id="tlol-img" src="" alt="TLOL Character">
       <div class="game-card-content">
-        <div class="game-badge" data-key="tlol_badge">OPEN WORLD · THRILLER</div>
+        <div class="game-badge" data-key="tlol_badge">ВІДКРИТИЙ СВІТ · ТРИЛЕР</div>
         <div class="game-title-small">THE LIMIT OF LIES</div>
         <h3 class="game-title-big tlol-color">TLOL</h3>
-        <p class="game-desc" data-key="tlol_desc">The main character Sandro Watesley is faced with a big problem. His
-          friend Daniel Samsonov has been kidnapped, and law enforcement agencies refuse to cooperate. Sandro will have
-          to team up with a variety of people. But is everyone telling the truth?</p>
+        <p class="game-desc" data-key="tlol_desc">Головний герой Сандро Вотслей стикається з серйозною проблемою. Його
+          друга Даніеля Самсонова викрали, а правоохоронні органи відмовляються допомагати. Сандро доведеться
+          об'єднатися з різними людьми. Але чи всі вони говорять правду?</p>
         <div class="game-actions">
-          <button class="btn btn-primary" onclick="openModal('tlol')" data-key="btn_more">LEARN MORE</button>
-          <button class="btn btn-outline" onclick="openModal('tlol-play')" data-key="btn_play">▶ PLAY NOW</button>
+          <button class="btn btn-primary" onclick="openModal('tlol')" data-key="btn_more">ДОКЛАДНІШЕ</button>
+          <button class="btn btn-outline" onclick="openModal('tlol-play')" data-key="btn_play">▶ ГРАТИ</button>
         </div>
       </div>
     </div>
@@ -93,14 +130,14 @@
       <div class="game-card-overlay tsr-overlay"></div>
       <img class="car-img" id="tsr-img" src="" alt="TSR Car">
       <div class="game-card-content">
-        <div class="game-badge" data-key="tsr_badge">RACING · OPEN WORLD</div>
+        <div class="game-badge" data-key="tsr_badge">ГОНКИ · ВІДКРИТИЙ СВІТ</div>
         <div class="game-title-small">THE STREET RACER</div>
         <h3 class="game-title-big tsr-color">TSR</h3>
-        <p class="game-desc" data-key="tsr_desc">TSR is an open world race with very special physics. You will have to
-          "play with the buttons" very well to keep the car from drifting in different directions!</p>
+        <p class="game-desc" data-key="tsr_desc">TSR — це перегони у відкритому світі з особливою фізикою. Вам
+          доведеться дуже вміло "грати з кнопками", щоб утримати машину від занесення у різні боки!</p>
         <div class="game-actions">
-          <button class="btn btn-red" onclick="openModal('tsr')" data-key="btn_more">LEARN MORE</button>
-          <button class="btn btn-outline" onclick="openModal('tsr-play')" data-key="btn_play">▶ PLAY NOW</button>
+          <button class="btn btn-red" onclick="openModal('tsr')" data-key="btn_more">ДОКЛАДНІШЕ</button>
+          <button class="btn btn-outline" onclick="openModal('tsr-play')" data-key="btn_play">▶ ГРАТИ</button>
         </div>
       </div>
     </div>
@@ -111,12 +148,12 @@
       <div class="game-card-overlay crystal-overlay"></div>
       <img class="crystal-img" id="crystal-img" src="" alt="Crystal Realms">
       <div class="game-card-content">
-        <div class="game-badge" data-key="crystal_badge">COMING SOON · GACHA</div>
+        <div class="game-badge" data-key="crystal_badge">СКОРО · Гача</div>
         <div class="game-title-small">CRYSTAL REALMS</div>
         <h3 class="game-title-big crystal-color">CRYSTAL<br>REALMS</h3>
-        <p class="coming-soon" data-key="crystal_soon">// NO INFO AVAILABLE YET — STAY TUNED</p>
+        <p class="coming-soon" data-key="crystal_soon">// ІНФОРМАЦІЯ ВІДСУТНЯ — СЛІДКУЙТЕ ЗА НАМИ</p>
         <div class="game-actions" style="margin-top:20px;">
-          <button class="btn btn-outline" onclick="openModal('crystal')" data-key="btn_notify">NOTIFY ME</button>
+          <button class="btn btn-outline" onclick="openModal('crystal')" data-key="btn_notify">СПОВІСТИТИ МЕНЕ</button>
         </div>
       </div>
     </div>
@@ -126,17 +163,17 @@
   <section id="store">
     <div class="store-header reveal">
       <div>
-        <div class="section-label" data-key="store_label">// MERCH</div>
-        <h2 data-key="store_title">STORE</h2>
+        <div class="section-label" data-key="store_label">// МЕРЧА</div>
+        <h2 data-key="store_title">МАГАЗИН</h2>
       </div>
-      <button class="btn btn-outline" onclick="openModal('store-all')" data-key="store_all">VIEW ALL →</button>
+      <button class="btn btn-outline" onclick="openModal('store-all')" data-key="store_all">ПЕРЕГЛЯНУТИ ВСЕ →</button>
     </div>
     <div class="store-grid reveal">
       <div class="store-item" onclick="openModal('store-item-1')">
         <div class="store-item-bg si-1"></div>
         <div class="store-placeholder-icon">👕</div>
         <div class="store-item-info">
-          <div class="store-item-name" data-key="item1_name">TLOL HOODIE</div>
+          <div class="store-item-name" data-key="item1_name">ХУДІ TLOL</div>
           <div class="store-item-price">$39.99</div>
         </div>
       </div>
@@ -144,7 +181,7 @@
         <div class="store-item-bg si-2"></div>
         <div class="store-placeholder-icon">🎮</div>
         <div class="store-item-info">
-          <div class="store-item-name" data-key="item2_name">TSR POSTER</div>
+          <div class="store-item-name" data-key="item2_name">ПОСТЕР TSR</div>
           <div class="store-item-price">$14.99</div>
         </div>
       </div>
@@ -152,7 +189,7 @@
         <div class="store-item-bg si-3"></div>
         <div class="store-placeholder-icon">💎</div>
         <div class="store-item-info">
-          <div class="store-item-name" data-key="item3_name">CRYSTAL REALMS KEYCHAIN</div>
+          <div class="store-item-name" data-key="item3_name">БРЕЛОК CRYSTAL REALMS</div>
           <div class="store-item-price">$9.99</div>
         </div>
       </div>
@@ -162,70 +199,171 @@
   <!-- FAQ -->
   <section id="faq">
     <div class="faq-header reveal">
-      <div class="section-label" data-key="faq_label">// QUESTIONS</div>
+      <div class="section-label" data-key="faq_label">// ЗАПИТАННЯ</div>
       <h2 data-key="faq_title">FAQ</h2>
     </div>
     <div class="faq-list reveal">
+
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span data-key="faq1_q">What is STA Studio?</span>
+        <div class="faq-q" onclick="toggleFaq(this)"><span data-key="faq1_q">Що таке STA Studio?</span>
           <div class="faq-icon">+</div>
         </div>
         <div class="faq-a">
-          <div class="faq-a-inner" data-key="faq1_a">STA Studio is a School Team Art Studio — a creative team of
-            students passionate about game development, art, and interactive storytelling. We create original games and
-            products driven by creativity and collaboration.</div>
+          <div class="faq-a-inner" data-key="faq1_a">STA Studio — це School Team Art, творча команда, захоплених
+            розробкою ігор, мистецтвом та інтерактивним сторітелінгом. Ми створюємо оригінальні ігри та продукти,
+            керовані творчістю та командною роботою.</div>
         </div>
       </div>
+
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span data-key="faq2_q">When will TLOL be released?</span>
+        <div class="faq-q" onclick="toggleFaq(this)"><span data-key="faq2_q">Коли вийде TLOL?</span>
           <div class="faq-icon">+</div>
         </div>
         <div class="faq-a">
-          <div class="faq-a-inner" data-key="faq2_a">The Limit Of Lies (TLOL) is currently in active development. We're
-            working hard to deliver a polished experience. Follow us and sign up for notifications to be the first to
-            know the release date!</div>
+          <div class="faq-a-inner" data-key="faq2_a">The Limit Of Lies (TLOL) наразі в активній розробці. Ми наполегливо
+            працюємо над якісним продуктом. Підписуйтесь та залишайте контакти, щоб дізнатись про дату виходу першими!
+          </div>
         </div>
       </div>
+
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span data-key="faq3_q">Is TSR free to play?</span>
+        <div class="faq-q" onclick="toggleFaq(this)"><span data-key="faq3_q">TSR безкоштовна гра?</span>
           <div class="faq-icon">+</div>
         </div>
         <div class="faq-a">
-          <div class="faq-a-inner" data-key="faq3_a">The Street Racer (TSR) is planned to launch as a free-to-play
-            title. Our focus is on getting the game into as many hands as possible so everyone can experience the unique
-            physics-based racing gameplay.</div>
+          <div class="faq-a-inner" data-key="faq3_a">The Street Racer (TSR) планується як безкоштовна гра. Наша мета —
+            дати якомога більше людей відчути унікальну фізику гоночного процесу.</div>
         </div>
       </div>
+
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span data-key="faq4_q">What is Crystal Realms?</span>
+        <div class="faq-q" onclick="toggleFaq(this)"><span data-key="faq4_q">Що таке Crystal Realms?</span>
           <div class="faq-icon">+</div>
         </div>
         <div class="faq-a">
-          <div class="faq-a-inner" data-key="faq4_a">Crystal Realms is our most ambitious project yet. Details are still
-            under wraps — we'll reveal more information as development progresses. Stay tuned and sign up for
-            notifications!</div>
+          <div class="faq-a-inner" data-key="faq4_a">Crystal Realms — наш найамбітніший проєкт. Деталі поки що
+            засекречені — більше інформації з'явиться у міру розробки. Слідкуйте за оновленнями!</div>
         </div>
       </div>
+
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span data-key="faq5_q">How can I contact or join the team?</span>
+        <div class="faq-q" onclick="toggleFaq(this)"><span data-key="faq5_q">Як зв'язатись або приєднатись до
+            команди?</span>
           <div class="faq-icon">+</div>
         </div>
         <div class="faq-a">
-          <div class="faq-a-inner" data-key="faq5_a">We're always open to talented and passionate individuals! If you'd
-            like to collaborate or join STA Studio, reach out through our social channels. We look forward to hearing
-            from you!</div>
+          <div class="faq-a-inner" data-key="faq5_a">Ми завжди раді талановитим та захопленим людям! Якщо ви хочете
+            співпрацювати або приєднатися до STA Studio — зв'яжіться з нами через соціальні мережі. Будемо раді почути
+            вас!</div>
         </div>
       </div>
+
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span data-key="faq6_q">Where do you ship store items?</span>
+        <div class="faq-q" onclick="toggleFaq(this)"><span data-key="faq6_q">Куди здійснюється доставка товарів?</span>
           <div class="faq-icon">+</div>
         </div>
         <div class="faq-a">
-          <div class="faq-a-inner" data-key="faq6_a">Currently we ship to select countries in Europe and North America.
-            Worldwide shipping is coming soon! All orders are processed within 3–5 business days and you'll receive a
-            tracking number once your item ships.</div>
+          <div class="faq-a-inner" data-key="faq6_a">Наразі ми відправляємо товари до окремих країн Європи та Північної
+            Америки. Всесвітня доставка незабаром! Усі замовлення обробляються протягом 3–5 робочих днів.</div>
         </div>
       </div>
+
+      <!-- CONCEPT SUBMIT FAQ ITEM -->
+      <div class="faq-item faq-concept">
+        <div class="faq-q" onclick="toggleFaq(this)"><span data-key="faq7_q">Надіслати концепт / ідею</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p data-key="faq7_intro" style="margin-bottom:20px;">Маєте ідею для гри, персонажа чи механіки? Надішліть
+              концепт — ми прочитаємо кожне повідомлення!</p>
+            <form class="concept-form" id="conceptForm" onsubmit="submitConcept(event)">
+              <div class="cf-row">
+                <div class="cf-field">
+                  <label data-key="cf_name">Ваше ім'я</label>
+                  <input type="text" id="cfName" data-key-placeholder="cf_name_ph" placeholder="Sandro Wattsley"
+                    required>
+                </div>
+                <div class="cf-field">
+                  <label data-key="cf_email">Email</label>
+                  <input type="email" id="cfEmail" data-key-placeholder="cf_email_ph" placeholder="you@example.com"
+                    required>
+                </div>
+              </div>
+              <div class="cf-field">
+                <label data-key="cf_subject">Тема концепту</label>
+                <input type="text" id="cfSubject" data-key-placeholder="cf_subject_ph"
+                  placeholder="Назва гри / механіка / персонаж..." required>
+              </div>
+              <div class="cf-field">
+                <label data-key="cf_message">Опис</label>
+                <textarea id="cfMessage" rows="5" data-key-placeholder="cf_msg_ph"
+                  placeholder="Розкажіть нам більше про вашу ідею..." required></textarea>
+              </div>
+          </div>
+          <button type="submit" class="btn btn-primary cf-submit" data-key="cf_send">НАДІСЛАТИ КОНЦЕПТ →</button>
+          </form>
+          <br>
+          <br>
+          <p class="alternative contact" style="margin-bottom:20px;">Або напишіть сюди: <a class="contact-link"
+              href="https://t.me/STAdevsup" target="_blank">@STAdevsup</a></p>
+        </div>
+
+
+        <div class="cf-success" id="cfSuccess" style="display:none;">
+          <div class="cf-success-icon">✓</div>
+          <p data-key="cf_success">Концепт надіслано! Ми відповімо найближчим часом.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACTS -->
+  <section id="contacts">
+    <div class="contacts-header reveal">
+      <div class="section-label" data-key="contacts_label">// ЗВ'ЯЗОК</div>
+      <h2 data-key="contacts_title">КОНТАКТИ</h2>
+    </div>
+    <div class="contacts-grid reveal">
+      <a class="contact-card" href="https://t.me/STAdevsup" target="_blank">
+        <div class="contact-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-telegram" viewBox="0 0 16 16">
+            <path
+              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.287 5.906q-1.168.486-4.666 2.01-.567.225-.595.442c-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294q.39.01.868-.32 3.269-2.206 3.374-2.23c.05-.012.12-.026.166.016s.042.12.037.141c-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8 8 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629q.14.092.27.187c.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.4 1.4 0 0 0-.013-.315.34.34 0 0 0-.114-.217.53.53 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09" />
+          </svg></div>
+        <div class="contact-platform">Telegram</div>
+        <div class="contact-handle">@STAdevsup</div>
+      </a>
+      <a class="contact-card" href="#" target="_blank">
+        <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-discord" viewBox="0 0 16 16">
+            <path
+              d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612" />
+          </svg></div>
+        <div class="contact-platform">Discord</div>
+        <div class="contact-handle">not available</div>
+      </a>
+      <a class="contact-card" href="#">
+        <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-envelope" viewBox="0 0 16 16">
+            <path
+              d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+          </svg></div>
+        <div class="contact-platform">Email</div>
+        <div class="contact-handle">not available</div>
+      </a>
+      <a class="contact-card" href="https://www.instagram.com/schoolteamarts/" target="_blank">
+        <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-instagram" viewBox="0 0 16 16">
+            <path
+              d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+          </svg></div>
+        <div class="contact-platform">Instagram</div>
+        <div class="contact-handle">@SchoolTeamArts</div>
+      </a>
     </div>
   </section>
 
@@ -233,12 +371,13 @@
   <footer>
     <div class="footer-logo">STA<span class="accent">.</span></div>
     <ul class="footer-links">
-      <li><a href="#hero" data-key="nav_home">HOME</a></li>
-      <li><a href="#games" data-key="nav_games">GAMES</a></li>
-      <li><a href="#store" data-key="nav_store">STORE</a></li>
+      <li><a href="#hero" data-key="nav_home">ГОЛОВНА</a></li>
+      <li><a href="#games" data-key="nav_games">ІГРИ</a></li>
+      <li><a href="#store" data-key="nav_store">МАГАЗИН</a></li>
       <li><a href="#faq" data-key="nav_faq">FAQ</a></li>
+      <li><a href="#contacts" data-key="nav_contacts">КОНТАКТИ</a></li>
     </ul>
-    <div class="footer-copy" data-key="footer_copy">© 2026 STA STUDIO · ALL RIGHTS RESERVED</div>
+    <div class="footer-copy" data-key="footer_copy">© 2026 STA STUDIO · УСІ ПРАВА ЗАХИЩЕНІ</div>
   </footer>
 
   <!-- MODAL -->
@@ -250,15 +389,15 @@
       <div class="modal-body" id="modalBody">Body</div>
       <div class="modal-stats" id="modalStats">
         <div class="stat">
-          <div class="stat-label" data-key="stat_genre">GENRE</div>
+          <div class="stat-label" data-key="stat_genre">ЖАНР</div>
           <div class="stat-val" id="statGenre">—</div>
         </div>
         <div class="stat">
-          <div class="stat-label" data-key="stat_status">STATUS</div>
+          <div class="stat-label" data-key="stat_status">СТАТУС</div>
           <div class="stat-val" id="statStatus">—</div>
         </div>
         <div class="stat">
-          <div class="stat-label" data-key="stat_platform">PLATFORM</div>
+          <div class="stat-label" data-key="stat_platform">ПЛАТФОРМА</div>
           <div class="stat-val" id="statPlatform">—</div>
         </div>
       </div>
